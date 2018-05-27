@@ -9,6 +9,7 @@
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
     "immutable": "^3.8.2",
+    "mongodb": "^3.1.0-beta4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
@@ -20,11 +21,14 @@
     "redux-saga": "^0.16.0"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts-ts build",
+    "server": "node server/server.js",
+    "client": "react-scripts-ts start",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
   },
+  "proxy": "http://localhost:3001/",
   "devDependencies": {
     "@types/express": "^4.11.1",
     "@types/express-graphql": "^0.6.1",
