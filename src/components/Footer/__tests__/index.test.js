@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react';
-import Footer from '../components/Footer';
+import Footer from '../index';
 
 describe('Footer', () => {
  it('should be defined', () => {

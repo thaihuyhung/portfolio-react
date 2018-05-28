@@ -17,7 +17,7 @@ export interface IQueryProfile {
 
 export interface IQueryProfileSuccess {
   type: QUERY_PROFILE_SUCCESS,
-  data: IQueryProfileResponseModel
+  response: IQueryProfileResponseModel
 }
 
 export interface IQueryProfileError {
@@ -34,9 +34,9 @@ export function queryProfile(param?: IQueryProfileRequestModel): IQueryProfile {
   };
 }
 
-export function queryProfileSuccess(data: IQueryProfileResponseModel): IQueryProfileSuccess {
+export function queryProfileSuccess(response: IQueryProfileResponseModel): IQueryProfileSuccess {
   return {
-    data,
+    response,
     type: QUERY_PROFILE_SUCCESS,
   };
 }

@@ -3,9 +3,11 @@ export interface IQueryProfileRequestModel {
 }
 
 export interface IQueryProfileResponseModel {
-  list: string[]
+  data: {
+    profile: object;
+  }
 }
 
 export interface IQueryProfileErrorModel {
-  error: number;
+  error: boolean;
 }

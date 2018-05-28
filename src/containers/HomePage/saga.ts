@@ -13,7 +13,6 @@ const client = new ApolloClient({
 });
 
 function* doQueryProfile(action: IQueryProfile) {
-
   const response = yield call([client, 'query'], {
     query: gql`
       {
@@ -33,10 +32,10 @@ function* doQueryProfile(action: IQueryProfile) {
     `
   });
   if (response.error) {
-    yield put(queryProfileError(response.error));
+    yield put(queryProfileError(response));
     return;
   }
-  yield put(queryProfileSuccess(response.data));
+  yield put(queryProfileSuccess(response));
 }
 
 export default function* queryTrendingWatcher() {

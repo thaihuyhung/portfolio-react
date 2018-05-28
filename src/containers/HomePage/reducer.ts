@@ -22,7 +22,7 @@ function homePageReducer(state: HomePageStoreState = initialState, action: HomeP
     case QUERY_PROFILE_SUCCESS:
       return state
         .set('profileLoading', false)
-        .set('profile', fromJS(action.data));
+        .set('profile', fromJS(action.response.data.profile));
     case QUERY_PROFILE_ERROR:
       return state
         .set('profileLoading', false)

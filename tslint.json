@@ -6,7 +6,8 @@
       "node_modules/**/*.ts",
       "server/**/*.js",
       "coverage",
-      "src/__tests__/**/*.js"
+      "src/**/*.test.js",
+      "src/**/*.test.js.snap"
     ]
   }
 }

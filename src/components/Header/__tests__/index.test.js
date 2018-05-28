@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react';
-import Header from '../components/Header';
+import Header from '../index';
 
 describe('Header', () => {
  it('should be defined', () => {
