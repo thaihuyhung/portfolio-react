@@ -14,3 +14,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - GraphQL
 - Express
 - NodeJS
+
+### Unit Testing
+- Jest
+- Enzyme
