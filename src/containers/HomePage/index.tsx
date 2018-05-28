@@ -2,14 +2,18 @@ import { withStyles } from '@material-ui/core/styles'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { compose, Dispatch } from 'redux'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
 import * as action from './action'
 import { HomePageStoreState } from './reducer'
 
 const styles = (theme: any): any => ({
-  container: {
+  homePageContainer: {
     background: '#F4F4F4',
     boxSizing: 'border-box',
-    minHeight: 'calc(100vh - 64px)',
+    margin: '0 auto',
+    maxWidth: 1180,
+    minHeight: 'calc(100vh - 64px - 80px)',
     padding: 24,
     [theme.breakpoints.down('xs')]: {
       padding: 8
@@ -25,9 +29,10 @@ interface IHomePageState {
 
 interface IHomePageProps {
   children?: React.ReactNode,
+  classes: any,
   loading: boolean,
   comments: string[],
-  queryComments: () => void
+  queryProfile: () => void
 }
 
 class HomePage extends React.Component<IHomePageProps, IHomePageState> {
@@ -38,8 +43,8 @@ class HomePage extends React.Component<IHomePageProps, IHomePageState> {
   }
 
   public componentDidMount() {
-    const { queryComments } = this.props;
-    queryComments();
+    const { queryProfile } = this.props;
+    queryProfile();
   }
 
   public onOpenFullScreen = (title: string, url: string) => {
@@ -59,20 +64,25 @@ class HomePage extends React.Component<IHomePageProps, IHomePageState> {
   }
 
   public render() {
+    const { classes } = this.props;
     return (
-      <div>Home Page</div>
+      <div>
+        <Header />
+        <div className={classes.homePageContainer}>Home Page</div>
+        <Footer />
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state: HomePageStoreState) => ({
-  comments: state.getIn(['home', 'comments']),
-  loading: state.getIn(['home', 'trendingLoading']),
+  comments: state.getIn(['home', 'profile']),
+  loading: state.getIn(['home', 'profileLoading']),
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<action.HomePageAction>) => {
   return {
-    queryComments: () => dispatch(action.queryComments())
+    queryProfile: () => dispatch(action.queryProfile())
   }
 }
 

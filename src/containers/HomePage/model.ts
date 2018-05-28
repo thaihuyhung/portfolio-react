@@ -1,11 +1,11 @@
-export interface IQueryCommentRequestModel {
+export interface IQueryProfileRequestModel {
   query: string;
 }
 
-export interface IQueryCommentResponseModel {
+export interface IQueryProfileResponseModel {
   list: string[]
 }
 
-export interface IQueryCommentErrorModel {
+export interface IQueryProfileErrorModel {
   error: number;
 }

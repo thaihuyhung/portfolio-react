@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Redux-saga
 - TypeScript
 - Material-UI
+- JSS
 
 ### Back End
 - Mongo DB

@@ -2,34 +2,34 @@ import { fromJS } from 'immutable'
 import { Map as ImmutableMap } from 'immutable'
 import { HomePageAction } from './action'
 import {
-  QUERY_COMMENTS,
-  QUERY_COMMENTS_ERROR,
-  QUERY_COMMENTS_SUCCESS
+  QUERY_PROFILE,
+  QUERY_PROFILE_ERROR,
+  QUERY_PROFILE_SUCCESS
 } from './constant'
 
 export type HomePageStoreState = ImmutableMap<string, object | boolean>;
 const initialState: HomePageStoreState = fromJS({
-  comments: [],
-  commentsLoading: true
+  profile: {},
+  profileLoading: true
 });
 
 
-function trendingReducer(state: HomePageStoreState = initialState, action: HomePageAction) {
+function homePageReducer(state: HomePageStoreState = initialState, action: HomePageAction) {
   switch (action.type) {
-    case QUERY_COMMENTS:
+    case QUERY_PROFILE:
       return state
-        .set('commentsLoading', true);
-    case QUERY_COMMENTS_SUCCESS:
+        .set('profileLoading', true);
+    case QUERY_PROFILE_SUCCESS:
       return state
-        .set('commentsLoading', false)
-        .set('comments', fromJS(action.data));
-    case QUERY_COMMENTS_ERROR:
+        .set('profileLoading', false)
+        .set('profile', fromJS(action.data));
+    case QUERY_PROFILE_ERROR:
       return state
-        .set('commentsLoading', false)
-        .set('comments', fromJS(null));
+        .set('profileLoading', false)
+        .set('profile', fromJS(null));
     default:
       return state;
   }
 }
 
-export default trendingReducer;
+export default homePageReducer;

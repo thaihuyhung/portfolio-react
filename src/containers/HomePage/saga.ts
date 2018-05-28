@@ -1,23 +1,44 @@
-import axios from 'axios'
+import ApolloClient from "apollo-boost"
+import gql from "graphql-tag"
 import { call, put, takeLatest } from 'redux-saga/effects'
 import {
-  IQueryComments,
-  queryCommentsError,
-  queryCommentsSuccess
+  IQueryProfile,
+  queryProfileError,
+  queryProfileSuccess
 } from './action'
-import { QUERY_COMMENTS } from './constant'
+import { QUERY_PROFILE } from './constant'
 
+const client = new ApolloClient({
+  uri: "/graphql"
+});
 
-function* doQueryComments(action: IQueryComments) {
+function* doQueryProfile(action: IQueryProfile) {
 
-  const response = yield call([axios, 'get'], '/api/documents');
+  const response = yield call([client, 'query'], {
+    query: gql`
+      {
+        profile {
+          basic {
+            name
+          }
+          skills 
+          experiences {
+            companyName
+          }
+          contact {
+            value
+          }
+        }
+      }
+    `
+  });
   if (response.error) {
-    yield put(queryCommentsError(response.error));
+    yield put(queryProfileError(response.error));
     return;
   }
-  yield put(queryCommentsSuccess(response.data));
+  yield put(queryProfileSuccess(response.data));
 }
 
 export default function* queryTrendingWatcher() {
-  yield takeLatest(QUERY_COMMENTS, doQueryComments);
+  yield takeLatest(QUERY_PROFILE, doQueryProfile);
 }

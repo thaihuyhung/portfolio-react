@@ -1,49 +1,49 @@
 import {
-  QUERY_COMMENTS,
-  QUERY_COMMENTS_ERROR,
-  QUERY_COMMENTS_SUCCESS
+  QUERY_PROFILE,
+  QUERY_PROFILE_ERROR,
+  QUERY_PROFILE_SUCCESS
 } from './constant';
 
 import {
-  IQueryCommentErrorModel,
-  IQueryCommentRequestModel,
-  IQueryCommentResponseModel
+  IQueryProfileErrorModel,
+  IQueryProfileRequestModel,
+  IQueryProfileResponseModel
 } from './model'
 
-export interface IQueryComments {
-  type: QUERY_COMMENTS,
-  param?: IQueryCommentRequestModel
+export interface IQueryProfile {
+  type: QUERY_PROFILE,
+  param?: IQueryProfileRequestModel
 }
 
-export interface IQueryCommentsSuccess {
-  type: QUERY_COMMENTS_SUCCESS,
-  data: IQueryCommentResponseModel
+export interface IQueryProfileSuccess {
+  type: QUERY_PROFILE_SUCCESS,
+  data: IQueryProfileResponseModel
 }
 
-export interface IQueryCommentsError {
-  type: QUERY_COMMENTS_ERROR,
-  error: IQueryCommentErrorModel
+export interface IQueryProfileError {
+  type: QUERY_PROFILE_ERROR,
+  error: IQueryProfileErrorModel
 }
 
-export type HomePageAction = IQueryComments | IQueryCommentsSuccess | IQueryCommentsError;
+export type HomePageAction = IQueryProfile | IQueryProfileSuccess | IQueryProfileError;
 
-export function queryComments(param?: IQueryCommentRequestModel): IQueryComments {
+export function queryProfile(param?: IQueryProfileRequestModel): IQueryProfile {
   return {
     param,
-    type: QUERY_COMMENTS,
+    type: QUERY_PROFILE,
   };
 }
 
-export function queryCommentsSuccess(data: IQueryCommentResponseModel): IQueryCommentsSuccess {
+export function queryProfileSuccess(data: IQueryProfileResponseModel): IQueryProfileSuccess {
   return {
     data,
-    type: QUERY_COMMENTS_SUCCESS,
+    type: QUERY_PROFILE_SUCCESS,
   };
 }
 
-export function queryCommentsError(error: IQueryCommentErrorModel): IQueryCommentsError {
+export function queryProfileError(error: IQueryProfileErrorModel): IQueryProfileError {
   return {
     error,
-    type: QUERY_COMMENTS_ERROR,
+    type: QUERY_PROFILE_ERROR,
   };
 }

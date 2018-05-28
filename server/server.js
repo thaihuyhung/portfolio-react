@@ -29,7 +29,7 @@ app.use('/graphql', expressGraphql({
     } catch (e) {
         throw Error(e);
     }
-})()
+})();
 
 
 
