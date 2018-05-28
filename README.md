@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - ReactJS
 - Redux-saga
 - TypeScript
+- Immutable
 - Material-UI
 - JSS
 
@@ -22,3 +23,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Jest
 - Enzyme
+- redux-saga-test-plan
