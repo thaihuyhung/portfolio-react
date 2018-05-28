@@ -23,8 +23,6 @@ const styles = (theme: any): any => ({
 
 interface IHomePageState {
   openFullScreen: boolean,
-  selectedImageUrl: string,
-  selectedImageTitle: string;
 }
 
 interface IHomePageProps {
@@ -37,30 +35,12 @@ interface IHomePageProps {
 
 class HomePage extends React.Component<IHomePageProps, IHomePageState> {
   public state: IHomePageState = {
-    openFullScreen: false,
-    selectedImageTitle: '',
-    selectedImageUrl: ''
+    openFullScreen: false
   }
 
   public componentDidMount() {
     const { queryProfile } = this.props;
     queryProfile();
-  }
-
-  public onOpenFullScreen = (title: string, url: string) => {
-    this.setState({
-      openFullScreen: true,
-      selectedImageTitle: title,
-      selectedImageUrl: url
-    })
-  }
-
-  public onCloseFullScreen = () => {
-    this.setState({
-      openFullScreen: false,
-      selectedImageTitle: '',
-      selectedImageUrl: ''
-    })
   }
 
   public render() {

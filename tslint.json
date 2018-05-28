@@ -4,7 +4,9 @@
     "exclude": [
       "config/**/*.js",
       "node_modules/**/*.ts",
-      "server/**/*.js"
+      "server/**/*.js",
+      "coverage",
+      "src/__tests__/**/*.js"
     ]
   }
 }
